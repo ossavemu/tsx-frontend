@@ -1,0 +1,98 @@
+[
+  [
+    "Dataset statistics",
+    {
+      "number_of_variables": 12,
+      "number_of_observations": 1000,
+      "missing_cells": 0,
+      "missing_cells_percentage": 0.0,
+      "duplicate_rows": 0,
+      "duplicate_rows_percentage": 0.0,
+      "total_size_in_memory": "0.02 MB",
+      "average_record_size_in_memory": "0.02 KB"
+    }
+  ],
+  [
+    "Variable types",
+    {
+      "numeric": 6,
+      "categorical": 6
+    }
+  ],
+  [
+    "Alerts",
+    {
+      "SeriesID": ["has constant value 0", "CONSTANT"],
+      "Class": ["has constant value 'IndyCar'", "CONSTANT"],
+      "DriverID": [
+        "is highly correlated with",
+        "EntrantID",
+        "HIGH CORRELATION"
+      ],
+      "EntrantID": [
+        "is highly correlated with",
+        "DriverID",
+        "HIGH CORRELATION"
+      ],
+      "SeriesID (1)": [
+        "is highly correlated with",
+        "IsMainTransponderOwner",
+        "and 4 other fields",
+        "HIGH CORRELATION"
+      ],
+      "IsMainTransponderOwner": [
+        "is highly correlated with",
+        "SeriesID",
+        "and 2 other fields",
+        "HIGH CORRELATION"
+      ],
+      "Id": ["has uniques values", "UNIQUE"]
+    }
+  ],
+  [
+    [
+      "Id",
+      {
+        "type": "Real number (ℝ≥0)",
+        "is": "UNIQUE",
+        "isRepeat": 1,
+        "Distinct": 1704,
+        "Distinct (%)": "100.0%",
+        "Missing": 0,
+        "Missing (%)": "0.0%",
+        "Infinite": 0,
+        "Infinite (%)": "0.0%",
+        "Mean": "6.43300449 × 10^10",
+        "Minimum": "6.43300449 × 10^10",
+        "Maximum": "6.43300449 × 10^10",
+        "Zeros": 0,
+        "Zeros (%)": "0.0%",
+        "Negative": 0,
+        "Negative (%)": "0.0%",
+        "Memory size": "0.02 MB"
+      }
+    ],
+    [
+      "Transponder",
+      {
+        "type": "Real number (ℝ≥0)",
+        "is": "HIGH CORRELATION",
+        "isRepeat": 4,
+        "Distinct": 39,
+        "Distinct (%)": "2.3%",
+        "Missing": 0,
+        "Missing (%)": "0.0%",
+        "Infinite": 0,
+        "Infinite (%)": "0.0%",
+        "Mean": 5931512.485,
+        "Minimum": 1437828,
+        "Maximum": 10121689,
+        "Zeros": 0,
+        "Zeros (%)": "0.0%",
+        "Negative": 0,
+        "Negative (%)": "0.0%",
+        "Memory size": "13.4 KiB"
+      }
+    ]
+  ]
+]

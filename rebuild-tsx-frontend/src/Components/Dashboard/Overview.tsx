@@ -51,7 +51,7 @@ const AlertOverview = ({ alerts }: any) => {
   return (
     <>
       <TableContainer mt={2} pr={20} w={'100%'}>
-        <Table variant="simple">
+        <Table variant='simple'>
           <Thead>
             <Tr>
               <Th fontSize={'2x1'}>Variable statistics</Th>
@@ -71,7 +71,8 @@ const AlertOverview = ({ alerts }: any) => {
                         rounded: 'full',
                         color: 'red.500',
                         bg: 'red.50'
-                      }}>
+                      }}
+                    >
                       {variables[index] + pred}
                     </Highlight>
                   </Td>
@@ -87,7 +88,8 @@ const AlertOverview = ({ alerts }: any) => {
                           rounded: 'full',
                           color: 'white',
                           bg: 'orange.500'
-                        }}>
+                        }}
+                      >
                         {status[index]}
                       </Highlight>
                     ) : status[index] === 'HIGH CORRELATION' ? (
@@ -99,7 +101,8 @@ const AlertOverview = ({ alerts }: any) => {
                           rounded: 'full',
                           color: 'white',
                           bg: 'gray.500'
-                        }}>
+                        }}
+                      >
                         {status[index]}
                       </Highlight>
                     ) : (
@@ -112,7 +115,8 @@ const AlertOverview = ({ alerts }: any) => {
                             rounded: 'full',
                             color: 'white',
                             bg: 'blue.500'
-                          }}>
+                          }}
+                        >
                           {status[index]}
                         </Highlight>
                       )
@@ -132,10 +136,10 @@ const OverviewTable = ({ overview, variables }: any) => {
   const contents = Object.values(overview)
 
   return (
-    <Wrap spacing="30px" justify="space-between">
+    <Wrap spacing='30px' justify='space-between'>
       <WrapItem>
-        <TableContainer w="124%" p="2">
-          <Table variant="simple">
+        <TableContainer w='124%' p='2'>
+          <Table variant='simple'>
             <Thead>
               <Tr>
                 <Th fontSize={'2x1'}>Dataset statistics</Th>
@@ -157,8 +161,8 @@ const OverviewTable = ({ overview, variables }: any) => {
       </WrapItem>
 
       <WrapItem>
-        <TableContainer mr={60} p="2" w="100%">
-          <Table variant="simple">
+        <TableContainer mr={60} p='2' w='100%'>
+          <Table variant='simple'>
             <Thead>
               <Tr>
                 <Th fontSize={'2x1'}>Variable statistics</Th>
@@ -186,19 +190,20 @@ const OverviewCard = ({ setPage, dataset }: any) => {
   let { dataset$Alerts, dataset$Overview, dataset$Variables } = dataset
   const [tabIndex, setTabIndex] = useState(0)
   return (
-    <Stack p="4" boxShadow="lg" m="4" borderRadius="sm">
-      <Stack direction="row" alignItems="center">
+    <Stack p='4' boxShadow='lg' m='4' borderRadius='sm'>
+      <Stack direction='row' alignItems='center'>
         <Heading fontSize={'2xl'}>Overview</Heading>
       </Stack>
 
-      <Stack justifyContent="space-between">
+      <Stack justifyContent='space-between'>
         <Tabs
-          variant="soft-rounded"
-          colorScheme="green"
+          variant='soft-rounded'
+          colorScheme='green'
           mt={4}
-          onChange={(index) => {
+          onChange={index => {
             setTabIndex(index)
-          }}>
+          }}
+        >
           <TabList>
             <Tab>Overview</Tab>
             <Tab>
@@ -208,11 +213,12 @@ const OverviewCard = ({ setPage, dataset }: any) => {
                   mx={2}
                   px={2}
                   py={1}
-                  rounded="full"
-                  bg="white"
-                  color="green.800"
-                  fontSize="sm"
-                  fontWeight={'bold'}>
+                  rounded='full'
+                  bg='white'
+                  color='green.800'
+                  fontSize='sm'
+                  fontWeight={'bold'}
+                >
                   {Object.keys(dataset$Alerts).length}
                 </Text>
               ) : (
@@ -220,10 +226,11 @@ const OverviewCard = ({ setPage, dataset }: any) => {
                   mx={2}
                   px={2}
                   py={1}
-                  rounded="full"
-                  bg="gray.500"
-                  color="white"
-                  fontSize="xs">
+                  rounded='full'
+                  bg='gray.500'
+                  color='white'
+                  fontSize='xs'
+                >
                   {Object.keys(dataset$Alerts).length}
                 </Text>
               )}
@@ -231,7 +238,7 @@ const OverviewCard = ({ setPage, dataset }: any) => {
             <Tab>Reproduction</Tab>
           </TabList>
           <TabPanels>
-            <TabPanel w="full" h="full">
+            <TabPanel w='full' h='full'>
               <Container maxW={'container.xl'} p={0}>
                 <OverviewTable
                   overview={dataset$Overview}
@@ -253,19 +260,8 @@ const OverviewCard = ({ setPage, dataset }: any) => {
     </Stack>
   )
 }
-const Overview = () => {
-  const [page, setPage] = useState('Competitor')
-  const [dataset$Alerts, dataset$Overview, dataset$Variables] = (() => {
-    if (page === 'Competitor') {
-      return [
-        dataCompetitor.dataset$Alerts,
-        dataCompetitor.dataset$Overview,
-        dataCompetitor.dataset$Variables
-      ]
-    }
-    return [[], [], []]
-  })()
-
+const Overview = ({ data, page, setPage }: any) => {
+  const [dataset$Alerts, dataset$Overview, dataset$Variables] = data
   return (
     <OverviewCard
       setPage={setPage}
